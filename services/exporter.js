@@ -16,9 +16,9 @@ function getTimeString() {
     return `${YYYY}${MM}${DD}_${HH}${mm}${ss}`;
 }
 
-(async() => {
+module.exports = async(txtfile) => {
     try {
-        const data = await getData();
+        const data = await getData(txtfile);
         const workbook = new ExcelJS.Workbook();
         for (let x = 0; x < data.length; x++) {
             const element = data[x];
@@ -116,4 +116,4 @@ function getTimeString() {
     } catch (error) {
         console.log(error);
     }
-})();
+};
