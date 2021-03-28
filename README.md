@@ -1,3 +1,3 @@
-# Gacha Logs For Genshin Impact
+# Genshin Wish
 
-Get your gacha history from Genshin Impact account.
+Export your gacha wish history from Genshin Impact account into Excel file.

@@ -1,12 +1,18 @@
 {
-  "name": "gachalogs",
+  "name": "wishxporter",
   "version": "1.0.0",
-  "description": "Get your gacha history from Genshin Impact account.",
-  "main": "index.js",
+  "description": "Export your gacha wish history from Genshin Impact account into Excel file.",
+  "main": "services/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wish": "node services/scraper.js",
+    "xporter": "node services/exporter.js"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "exceljs": "^4.2.1"
+  }
 }
