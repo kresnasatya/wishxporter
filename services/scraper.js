@@ -1,4 +1,3 @@
-const path = require('path');
 const fs = require('fs');
 const fsPromises = fs.promises;
 const axios = require('axios').default;
@@ -43,9 +42,14 @@ const getGachaLog = async ({ wish, page, endId }, txtfile) => {
             },
             params: params
         });
-        return response.data.data.list;
+        const result = response.data;
+        if (result.data === null) {
+            throw new Error(`Cannot get your gacha data because: ${result.message}! Please try again later.`);
+        } else {
+            return result.data.list;
+        }
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 }
 
