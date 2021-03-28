@@ -1,6 +1,6 @@
 # Wishxporter
 
-An CLI tool for export your gacha wish history from Genshin Impact account into Excel file.
+A CLI tool for export your gacha wish history from Genshin Impact account into Excel file.
 
 ## Motivation
 
