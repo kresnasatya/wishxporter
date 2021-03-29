@@ -27,7 +27,7 @@ npm install -g wishxporter
 
 ## Penggunaan
 
-1. Salin file `output_log.txt` from ~/AppData/LocalLow/miHoYo/Genshin Impact (untuk OS Windows) and tempel di direktori baru (contoh: export-player-gacha).
+1. Salin file `output_log.txt` dari ~/AppData/LocalLow/miHoYo/Genshin Impact (untuk OS Windows) and tempel di direktori baru (contoh: export-player-gacha).
 2. Menuju ke direktori export-player-gacha dan jalankan `wishxporter output_log.txt`. Perkakas terminal akan menarik data dari API MiHoYo dengan `authkey` dari `output_log.txt` kemudian menyimpan data ke dalam bentuk file Excel.
 
 Jika tidak berhasil maka akan kamu akan mendapatkan pesan di bawah ini:
