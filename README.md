@@ -1,46 +1,51 @@
+[English](/README.en-US.md) | Indonesia
+
+
 # Wishxporter
 
-A CLI tool for export your gacha wish history from Genshin Impact account into Excel file.
+Perkakas terminal untuk mengekspor riwayat gachamu dari akun Genshin Impact ke file Excel.
 
-## Motivation
+Jika kamu mendapat keuntungan dari perkakas terminal ini [silakan traktir saya 3 - 5 es krim di Trakteer.id](https://trakteer.id/satyakresna)
 
-As we know Genshin Impact will store gacha history around 6 months and after that it will be reset. Instead of use notepad and copy paste manually, why don't make it easier by use CLI tool? By backup gacha history you can track and analyze your gacha history.
+## Motivasi
 
-## List of Back Up Data
+Seperti yang kita tahu bahwa Genshin Impact menyimpan riwayat gacha selama 6 bulan dan setelah itu akan di reset ulang. Daripada menggunakan notepad dan salin tempel secara manual, kenapa tidak membuat sebuah perkakas terminal sebagai jalan yang lebih mudah? Dengan melakukan backup riwayat gacha kamu dapat melacak dan menganalisa riwayat gachamu.
 
-- Character Event Wish
-- Weapon Event Wish
-- Permanent Event Wish
+## Daftar Data yang di Back Up
 
-## Requirement and Installation
+- Event Permohonan Karakter
+- Event Permohonan Senjata
+- Event Permohonan Permanen
 
-It requires node js with minimum version 10. After that install cli with command
+## Syarat and Instalasi
+
+Membutuhkan node js dengan versi minimum versi 10. Setelah itu install perkakas terminal ini dengan perintah
 
 ```bash
 npm install -g wishxporter
 ```
 
-## Usage
+## Penggunaan
 
-1. Copy `output_log.txt` file from ~/AppData/LocalLow/miHoYo/Genshin Impact (for Windows OS) and paste in new directory (e.g. export-player-gacha)
-2. Go to export-player-gacha directory and run `wishxporter output_log.txt`. The CLI will fetch data from Mihoyo API with `authkey` from `output_log.txt` then store data into Excel file.
+1. Salin file `output_log.txt` from ~/AppData/LocalLow/miHoYo/Genshin Impact (untuk OS Windows) and tempel di direktori baru (contoh: export-player-gacha).
+2. Menuju ke direktori export-player-gacha dan jalankan `wishxporter output_log.txt`. Perkakas terminal akan menarik data dari API MiHoYo dengan `authkey` dari `output_log.txt` kemudian menyimpan data ke dalam bentuk file Excel.
 
-If it doesn't successful fetch data you will get error message like this:
+Jika tidak berhasil maka akan kamu akan mendapatkan pesan di bawah ini:
 
 `Cannot get your gacha data because: authkey timeout! Please try again later.`
 
-## FAQ
+## Tanya Jawab
 
-### Is this CLI violate rules from MiHoYo?
+### Apakah Perkakas Terminal ini melanggar aturan dari MiHoYo?
 
-From my perspective it doesn't because it just fetch data and not modify or edit data in Genshin Impact game. For the proof I have been try this CLI tool and here's my [Genshin Wish History file](https://drive.google.com/file/d/1Ny5LRSx4KjuarU6Dvn2S4mv2G9xYsn9O/view?usp=sharing).
+Dari perspektif saya tidak karena perkakas ini hanya menarik data dan tidak melakukan modifikasi atau mengedit data di game Genshin Impact. Sebagai bukti saya telah menggunakan perkakas ini dan ini adalah [file Genshin Wish History milik saya](https://drive.google.com/file/d/1Ny5LRSx4KjuarU6Dvn2S4mv2G9xYsn9O/view?usp=sharing).
 
-### Takagg has been share about the same mechanism with desktop app. Why you don't use that instead of make CLI?
+### Takagg sudah pernah membagikan mekanisme yang sama menggunakan aplikasi dekstop. Kenapa kamu tidak menggunakan itu daripada membuat perkakas CLI?
 
-[Takagg has been make the same mechanism with desktop app](https://www.youtube.com/watch?v=EiW5-TwOOtI) but I want to know how exactly what's going on behind the scene of that desktop app. Luckily, [the source code is open](https://github.com/takagg/genshin-gacha-export) and I can check too.
+[Takagg sudah pernah membagikan mekanisme yang sama menggunakan aplikasi dekstop](https://www.youtube.com/watch?v=EiW5-TwOOtI) tapi saya ingin tahu apa yang sebenarnya terjadi di balik layar di aplikasi desktop itu. Untungnya, [sumber kode terbuka](https://github.com/takagg/genshin-gacha-export) dan saya bisa mengeceknya juga.
 
-Also, I want to make the simple thing for myself as possible and maybe you can get benefit from my CLI tool. :)
+Kemudian, saya ingin membuat hal sederhana untuk diri saya sebisa mungkin dan mungkin kamu bisa dapatkan keuntungan dari perkakas terminal saya. :)
 
-## Inspiration
+## Inspirasi
 
-Thanks to [takagg/genshin-gacha-export](https://github.com/takagg/genshin-gacha-export) originally come from [biuuu/genshin-wish-export](https://github.com/biuuu/genshin-wish-export) and [thesadru/genshinstats](https://github.com/thesadru/genshinstats) as the inspiration of this project. 🙏
+Terima kasih kepada [takagg/genshin-gacha-export](https://github.com/takagg/genshin-gacha-export) yang sebenarnya berasal dari [biuuu/genshin-wish-export](https://github.com/biuuu/genshin-wish-export) dan [thesadru/genshinstats](https://github.com/thesadru/genshinstats) sebagai inspirasi dari proyek ini. 🙏
