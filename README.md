@@ -27,16 +27,57 @@ npm install -g wishxporter
 
 ## Penggunaan
 
+### Mendapatkan authkey
+
+Ada 5 cara untuk mendapatkan authkey dari Genshin Impact:
+
+#### **PC (Windows)**
+
+1. Buka menu Paimon [ESC].
+2. Klik Masukan.
+3. Tunggu sampai semua halaman sudah dimuat dan browser Anda akan terbuka.
+4. Salin dan buat file bernama **auth.txt** dan tempel hasilnya di sana.
+5. Jalankan perintah `wishxporter auth.txt`.
+
+#### **PC (Windows) cara Opsional**
+
 **PERHATIAN: PASTIKAN KAMU SUDAH LOGIN KE GENSHIN IMPACT DAN TELAH MASUK KE HALAMAN GACHA EVENT WISH AGAR authkey TERSIMPAN DI output_log.txt**
 
 1. Salin file `output_log.txt` dari ~/AppData/LocalLow/miHoYo/Genshin Impact (untuk OS Windows) and tempel di direktori baru (contoh: export-player-gacha).
 2. Menuju ke direktori export-player-gacha dan jalankan `wishxporter output_log.txt`. Perkakas terminal akan menarik data dari API MiHoYo dengan `authkey` dari `output_log.txt` kemudian menyimpan data ke dalam bentuk file Excel.
 
-Jika tidak berhasil maka akan kamu akan mendapatkan pesan di bawah ini:
+#### **Android**
+
+1. Buka menu Paimon.
+2. Tekan Masukan.
+3. Tunggu sampai halaman masukan tampil seutuhnya.
+4. Matikan wifi dan data selular.
+5. Tekan refresh di ujung kanan atas.
+6. Halaman masukan seharusnya error dan akan menampilkan teks dengan warna hitam.
+7. Tekan dan tahan teks lalu pilih semua, kemudian salin teks nya (semuanya dan tidak boleh dipotong-potong).
+8. Buat file bernama **auth.txt** di komputer Anda dan tempel hasilnya tempel hasilnya di dalam file tersebut.
+9. Jalankan perintah `wishxporter auth.txt`.
+
+#### **iOS**
+
+1. Buka menu Paimon.
+2. Tekan Masukan.
+3. Tunggu sampai halaman masukan tampil seutuhnya.
+4. Tekan Masalah Game.
+5. Tekan Mode Co-Op.
+6. Ada tautan warna biru di bawah reply, klik tautan tersebut.
+7. Browser Anda akan terbuka, salin tautan di browser dan buat file bernama **auth.txt** di komputer Anda dan tempel hasilnya di dalam file tersebut.
+8. Jalankan perintah `wishxporter auth.txt`
+
+Jika tidak berhasil maka akan Anda akan mendapatkan pesan di bawah ini:
 
 `Cannot get your gacha data because: authkey timeout! Please try again later.`
 
 ## Tanya Jawab
+
+### Apakah Perkakas Terminal ini ada mengoleksi data riwayat gacha saya dibalik layar?
+
+Perkakas terminal hanya bertujuan untuk mengekspor data riwayat gacha Anda ke Excel file dengan menggunakan `authkey`. `authkey` tidak disimpan di balik layar dan tidak ada data riwayat gacha yang dikoleksi dibalik layar.
 
 ### Apakah Perkakas Terminal ini melanggar aturan dari MiHoYo?
 
@@ -50,4 +91,8 @@ Kemudian, saya ingin membuat hal sederhana untuk diri saya sebisa mungkin dan mu
 
 ## Inspirasi
 
-Terima kasih kepada [takagg/genshin-gacha-export](https://github.com/takagg/genshin-gacha-export) yang sebenarnya berasal dari [biuuu/genshin-wish-export](https://github.com/biuuu/genshin-wish-export) dan [thesadru/genshinstats](https://github.com/thesadru/genshinstats) sebagai inspirasi dari proyek ini. 🙏
+Terima kasih kepada:
+
+1. [takagg/genshin-gacha-export](https://github.com/takagg/genshin-gacha-export) yang sebenarnya berasal dari [biuuu/genshin-wish-export](https://github.com/biuuu/genshin-wish-export) 
+2. [thesadru/genshinstats](https://github.com/thesadru/genshinstats)
+3. [Situs paimon.moe](https://paimon.moe/wish) telah menyediakan cara untuk mendapatkan `authkey` dari menu Masukan Genshin Impact.

@@ -27,16 +27,56 @@ npm install -g wishxporter
 
 ## Usage
 
+### Mendapatkan authkey
+
+There are five methods how to get `authkey` from Genshin Impact:
+
+#### **PC (Windows)**
+
+1. Open Paimon menu [ESC].
+2. Click Feedback.
+3. Wait until all page have been loaded and your browser will open.
+4. Copy and create file with name **auth.txt** and paste it there.
+
+#### **PC (Windows) optional method**
+
 **ATTENTION: MAKE SURE YOU ALREADY LOGIN TO GENSHIN IMPACT AND GO TO GACHA EVENT WISH PAGE SO authkey STORE IN output_log.txt**
 
 1. Copy `output_log.txt` file from ~/AppData/LocalLow/miHoYo/Genshin Impact (for Windows OS) and paste in new directory (e.g. export-player-gacha)
 2. Go to export-player-gacha directory and run `wishxporter output_log.txt`. The CLI will fetch data from Mihoyo API with `authkey` from `output_log.txt` then store data into Excel file.
+
+#### **Android**
+
+1. Open Paimon menu.
+2. Tap Feedback.
+3. Wait until all page have been loaded.
+4. Turn off wifi dan celular data.
+5. Tap refresh on the top right corner.
+6. Feedback page should be error and it will be show black text.
+7. Tap and hold text then select all, then copy all text!
+8. Create a file with name **auth.txt** in your computer and paste the result there.
+9. Run command `wishxporter auth.txt`.
+
+#### **iOS**
+
+1. Open Paimon menu.
+2. Tap Feedback.
+3. Wait until all page have been loaded.
+4. Tap Masalah Game.
+5. Tap Mode Co-Op.
+6. There's a blue link below reply, click that link.
+7. Your browser will open, copy that link and make file with name **auth.txt** in your computer and paste the result in that file.
+8. Run command `wishxporter auth.txt`
 
 If it doesn't successful fetch data you will get error message like this:
 
 `Cannot get your gacha data because: authkey timeout! Please try again later.`
 
 ## FAQ
+
+### Is this CLI collect gacha history behind the scene?
+
+This CLI just to export your gacha wish history from Genshin Impact account into Excel file by using `authkey`. `authkey` also doesn't store in behind the scene and also gacha history data doesn't store in behind the scene.
 
 ### Is this CLI violate rules from MiHoYo?
 
@@ -50,4 +90,9 @@ Also, I want to make the simple thing for myself as possible and maybe you can g
 
 ## Inspiration
 
-Thanks to [takagg/genshin-gacha-export](https://github.com/takagg/genshin-gacha-export) originally come from [biuuu/genshin-wish-export](https://github.com/biuuu/genshin-wish-export) and [thesadru/genshinstats](https://github.com/thesadru/genshinstats) as the inspiration of this project. 🙏
+Thanks to:
+
+1. [takagg/genshin-gacha-export](https://github.com/takagg/genshin-gacha-export) yang sebenarnya berasal dari [biuuu/genshin-wish-export](https://github.com/biuuu/genshin-wish-export) 
+2. [thesadru/genshinstats](https://github.com/thesadru/genshinstats)
+3. [Situs paimon.moe](https://paimon.moe/wish) for provide method how to get `authkey` from Feedback menu in Genshin Impact game.
+
