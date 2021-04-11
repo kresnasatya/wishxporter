@@ -1,4 +1,5 @@
 const getData = require('./scraper.js');
+const getAuthKey = require('./authkey.js');
 const ExcelJS = require('exceljs');
 
 function pad(num) {
@@ -13,12 +14,16 @@ function getTimeString() {
     const HH = pad(d.getHours());
     const mm = pad(d.getMinutes());
     const ss = pad(d.getSeconds());
-    return `${YYYY}${MM}${DD}_${HH}${mm}${ss}`;
+    return `${YYYY}-${MM}-${DD}_${HH}:${mm}:${ss}`;
 }
 
-module.exports = async(txtfile) => {
+module.exports = async() => {
     try {
-        const data = await getData(txtfile);
+        const authkey = getAuthKey();
+        if (authkey === undefined || authkey === null) {
+            throw new Error(`Please provide output_log.txt or AUTHKEY_URL in your environment file.`);
+        }
+        const data = await getData(authkey);
         const workbook = new ExcelJS.Workbook();
         for (let x = 0; x < data.length; x++) {
             const element = data[x];
@@ -112,7 +117,7 @@ module.exports = async(txtfile) => {
             })
         }
 
-        await workbook.xlsx.writeFile(`Genshin_Wish_History_${getTimeString()}.xlsx`);
+        await workbook.xlsx.writeFile(`${getTimeString()}_Genshin_Wish_History.xlsx`);
     } catch (error) {
         console.log(error);
     }

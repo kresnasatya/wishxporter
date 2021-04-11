@@ -1,5 +1,3 @@
-const fs = require('fs');
-const fsPromises = fs.promises;
 const axios = require('axios').default;
 const GACHA_LOG_URL = "https://hk4e-api.mihoyo.com/event/gacha_info/api/";
 const wishes = [
@@ -14,20 +12,12 @@ const wishes = [
     }
 ];
 
-getAuthKey = async(txtfile) => {
-    const text = await fsPromises.readFile(txtfile, 'utf-8');
-    const authRegex = /https:\/\/.+authkey=([^&]+).*#\/(?:log)?/g;
-    const matchText = text.match(authRegex);
-    let authkeyUrl = decodeURIComponent(matchText[0]);
-    return authkeyUrl.match(/authkey=([^&]+)/)[1];
-}
-
-const getGachaLog = async ({ wish, page, endId }, txtfile) => {
+const getGachaLog = async ({ wish, page, endId }, authkey) => {
     try {
         const params = {
             "authkey_ver": 1,
             "lang": "en",
-            "authkey": await getAuthKey(txtfile),
+            "authkey": authkey,
             "gacha_type": wish.key,
             "page": page,
             "size": 20
@@ -53,7 +43,7 @@ const getGachaLog = async ({ wish, page, endId }, txtfile) => {
     }
 }
 
-const getGachaLogs = async (wish, txtfile) => {
+const getGachaLogs = async (wish, authkey) => {
     try {
         let page = 1;
         let list = [];
@@ -66,7 +56,7 @@ const getGachaLogs = async (wish, txtfile) => {
                 await new Promise(r => setTimeout(r, 500));
                 console.log("Let's do it again!");
             }
-            list = await getGachaLog({ wish, page, endId }, txtfile);
+            list = await getGachaLog({ wish, page, endId }, authkey);
             result.push(...list);
             page += 1;
             if (result.length > 0) {
@@ -79,11 +69,11 @@ const getGachaLogs = async (wish, txtfile) => {
     }
 }
 
-module.exports = async (txtfile) => {
+module.exports = async (authkey) => {
     try {
         const collectResult = [];
         for (let x = 0; x < wishes.length; x++) {
-            const gachaLogs = await getGachaLogs(wishes[x], txtfile);
+            const gachaLogs = await getGachaLogs(wishes[x], authkey);
             // Sorted in ASC mode
             const sortedGachaLogs = gachaLogs.sort((a, b) => (BigInt(a.id) < BigInt(b.id)) ? -1 : ((BigInt(a.id) > BigInt(b.id)) ? 1 : 0));
             const newResult = [];
