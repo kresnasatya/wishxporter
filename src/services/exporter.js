@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const getData = require('./scraper.js');
 const getAuthKey = require('./authkey.js');
 const ExcelJS = require('exceljs');
@@ -117,7 +119,12 @@ module.exports = async(options = {}) => {
             })
         }
 
-        await workbook.xlsx.writeFile(`tmp/${getTimeString()}_Genshin_Wish_History.xlsx`);
+        // Make tmp directory if it doesn't exist
+        if (!fs.existsSync('tmp')) {
+            fs.mkdirSync(path.join('tmp'));
+        }
+        
+        await workbook.xlsx.writeFile((`tmp/${getTimeString()}_Genshin_Wish_History.xlsx`));
     } catch (error) {
         console.log(error);
     }
