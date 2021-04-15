@@ -14,7 +14,7 @@ function getTimeString() {
     const HH = pad(d.getHours());
     const mm = pad(d.getMinutes());
     const ss = pad(d.getSeconds());
-    return `${YYYY}-${MM}-${DD}_${HH}:${mm}:${ss}`;
+    return `${YYYY}-${MM}-${DD}__${HH}_${mm}_${ss}`;
 }
 
 module.exports = async() => {
