@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const getData = require('./scraper.js');
 const getAuthKey = require('./authkey.js');
 const ExcelJS = require('exceljs');
@@ -119,28 +117,7 @@ module.exports = async(options = {}) => {
             })
         }
 
-        const filename = `${getTimeString()}_Genshin_Wish_History.xlsx`;
-        await workbook.xlsx.writeFile(filename);
-
-        // Make tmp directory if it doesn't exist and move file tmp directory
-        fs.access('tmp', err => {
-            if (err) {
-                fs.mkdir('tmp', err => {
-                    if (err) {
-                        return console.log(err);
-                    }
-                });
-            }
-        })
-        
-
-        fs.rename(path.join(filename), path.join('tmp', filename), err => {
-            if (err) {
-                throw err
-            } else {
-                console.log(`Successfully move ${filename} to tmp directory!`);
-            }
-        })
+        await workbook.xlsx.writeFile(`tmp/${getTimeString()}_Genshin_Wish_History.xlsx`);
     } catch (error) {
         console.log(error);
     }
