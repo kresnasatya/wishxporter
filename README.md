@@ -37,14 +37,14 @@ Ada 5 cara untuk mendapatkan authkey dari Genshin Impact:
 2. Klik Masukan.
 3. Tunggu sampai semua halaman sudah dimuat dan browser Anda akan terbuka.
 4. Salin dan buat file bernama **auth.txt** dan tempel hasilnya di sana.
-5. Jalankan perintah `wishxporter auth.txt`.
+5. Jalankan perintah `wishxporter --file=auth.txt`.
 
 #### **PC (Windows) cara Opsional**
 
 **PERHATIAN: PASTIKAN KAMU SUDAH LOGIN KE GENSHIN IMPACT DAN TELAH MASUK KE HALAMAN GACHA EVENT WISH AGAR authkey TERSIMPAN DI output_log.txt**
 
 1. Salin file `output_log.txt` dari ~/AppData/LocalLow/miHoYo/Genshin Impact (untuk OS Windows) and tempel di direktori baru (contoh: export-player-gacha).
-2. Menuju ke direktori export-player-gacha dan jalankan `wishxporter output_log.txt`. Perkakas terminal akan menarik data dari API MiHoYo dengan `authkey` dari `output_log.txt` kemudian menyimpan data ke dalam bentuk file Excel.
+2. Menuju ke direktori export-player-gacha dan jalankan `wishxporter --file=output_log.txt`. Perkakas terminal akan menarik data dari API MiHoYo dengan `authkey` dari `output_log.txt` kemudian menyimpan data ke dalam bentuk file Excel.
 
 #### **Android**
 
@@ -56,7 +56,7 @@ Ada 5 cara untuk mendapatkan authkey dari Genshin Impact:
 6. Halaman masukan seharusnya error dan akan menampilkan teks dengan warna hitam.
 7. Tekan dan tahan teks lalu pilih semua, kemudian salin teks nya (semuanya dan tidak boleh dipotong-potong).
 8. Buat file bernama **auth.txt** di komputer Anda dan tempel hasilnya tempel hasilnya di dalam file tersebut.
-9. Jalankan perintah `wishxporter auth.txt`.
+9. Jalankan perintah `wishxporter --file=auth.txt`.
 
 #### **iOS**
 
@@ -67,7 +67,7 @@ Ada 5 cara untuk mendapatkan authkey dari Genshin Impact:
 5. Tekan Mode Co-Op.
 6. Ada tautan warna biru di bawah reply, klik tautan tersebut.
 7. Browser Anda akan terbuka, salin tautan di browser dan buat file bernama **auth.txt** di komputer Anda dan tempel hasilnya di dalam file tersebut.
-8. Jalankan perintah `wishxporter auth.txt`
+8. Jalankan perintah `wishxporter --file=auth.txt`
 
 Jika tidak berhasil maka akan Anda akan mendapatkan pesan di bawah ini:
 
