@@ -8,9 +8,6 @@ const args = mri(process.argv.slice(2));
 // Expected command
 // wishxporter --file=filename.txt
 
-// This command below will read env from secrets ke in GitHub
-// wishxporter --sendto=gdrive
-
 if (args.help) {
     const help = fs
     .readFileSync(path.join(__dirname, '..', 'help.md'), 'utf-8')
@@ -22,11 +19,6 @@ if (args.help) {
     return true;
 } if (args.file) {
     const options = { file: args.file };
-    (async () => {
-        await exporter(options);
-    })();
-} else if (args.sendto) {
-    const options = { sendto: 'gdrive' };
     (async () => {
         await exporter(options);
     })();
