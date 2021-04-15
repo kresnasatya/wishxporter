@@ -25,6 +25,8 @@ It requires node js with minimum version 10. After that install cli with command
 npm install -g wishxporter
 ```
 
+Please run `wishxporter --help` to more information.
+
 ## Usage
 
 ### Mendapatkan authkey
