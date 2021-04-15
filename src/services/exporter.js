@@ -17,9 +17,9 @@ function getTimeString() {
     return `${YYYY}-${MM}-${DD}__${HH}_${mm}_${ss}`;
 }
 
-module.exports = async() => {
+module.exports = async(options = {}) => {
     try {
-        const authkey = getAuthKey();
+        const authkey = getAuthKey(options);
         if (authkey === undefined || authkey === null) {
             throw new Error(`Please provide output_log.txt or AUTHKEY_URL in your environment file.`);
         }

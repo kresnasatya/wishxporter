@@ -1,10 +1,10 @@
 const fs = require('fs');
 require('dotenv').config();
 
-module.exports = () => {
+module.exports = (options) => {
     let path = './output_log.txt';
-    if (process.argv.slice(2)[0] !== undefined) {
-        path = process.argv.slice(2)[0];
+    if (options.file) {
+        path = options.file;
     }
 
     if (fs.existsSync(path)) {
