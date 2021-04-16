@@ -29,7 +29,7 @@ Please run `wishxporter --help` to more information.
 
 ## Usage
 
-### Mendapatkan authkey
+### Get authkey
 
 There are five methods how to get `authkey` from Genshin Impact:
 
