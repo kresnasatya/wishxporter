@@ -51,11 +51,6 @@ const getGachaLogs = async (wish, authkey) => {
         let endId = 0;
         do {
             console.log(`Process ${wish.name} with page number ${page}`);
-            if (page % 10 === 0) {
-                console.log(`Take a break after processing ${wish.name} with page number ${page}`);
-                await new Promise(r => setTimeout(r, 500));
-                console.log("Let's do it again!");
-            }
             list = await getGachaLog({ wish, page, endId }, authkey);
             result.push(...list);
             page += 1;
