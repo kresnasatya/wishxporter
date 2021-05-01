@@ -25,7 +25,67 @@ module.exports = async(options = {}) => {
         if (authkey === undefined || authkey === null) {
             throw new Error(`Please provide output_log.txt or AUTHKEY_URL in your environment file.`);
         }
-        const data = await getData(authkey);
+        const data = await getData(authkey, options.lite);
+        if (options.lite) {
+            for (let x = 0; x < data.length; x++) {
+                const element = data[x];
+
+                let pity = 0;
+                for (let index = 0; index < element.length; index++) {
+                    const item = element[index];
+                    pity += 1;
+                    item.pity = pity;
+                    if (item.rank == "5") {
+                        pity = 0;
+                    }
+                }
+            }
+
+            let characterEventWishes = data[0];
+            let fiveStarChar = null;
+            let lastCharacterEventWishes = characterEventWishes[characterEventWishes.length - 1];
+            characterEventWishes.forEach(wish => {
+                if (wish.rank === '5') {
+                    fiveStarChar = wish;
+                }
+            });
+
+            let weaponEventWishes = data[1];
+            let fiveStarWeapon = null;
+            let lastWeaponEventWishes = weaponEventWishes[weaponEventWishes.length - 1];
+            weaponEventWishes.forEach(wish => {
+                if (wish.rank === '5') {
+                    fiveStarWeapon = wish;
+                }
+            });
+
+            let permanentEventWishes = data[2];
+            let fiveStarPermanent = null;
+            let lastPermanentEventWishes = permanentEventWishes[permanentEventWishes.length - 1];
+            permanentEventWishes.forEach(wish => {
+                if (wish.rank === '5') {
+                    fiveStarPermanent = wish;
+                }
+            });
+
+            console.log("\n");
+            console.log('------- Character Event Wish -------');
+            console.log('Last five star gacha:', fiveStarChar.name);
+            console.log('Current pity count:', lastCharacterEventWishes.pity);
+            console.log('------------------------------------');
+            console.log("\n");
+            console.log('------- Weapon Event Wish -------');
+            console.log('Last five star gacha:', fiveStarWeapon.name);
+            console.log('Current pity count:', lastWeaponEventWishes.pity);
+            console.log('------------------------------------');
+            console.log("\n");
+            console.log('------- Permanent Event Wish -------');
+            console.log('Last five star gacha:', fiveStarPermanent.name);
+            console.log('Current pity count:', lastPermanentEventWishes.pity);
+            console.log('------------------------------------');
+            return true;
+        }
+
         const workbook = new ExcelJS.Workbook();
         for (let x = 0; x < data.length; x++) {
             const element = data[x];

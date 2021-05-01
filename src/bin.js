@@ -7,6 +7,8 @@ const args = mri(process.argv.slice(2));
 
 // Expected command
 // wishxporter --file=filename.txt
+// wishxporter --lite --file=filename.txt
+// wishxporter --lite
 
 if (args.help) {
     const help = fs
@@ -19,11 +21,18 @@ if (args.help) {
     return true;
 } if (args.file) {
     const options = { file: args.file };
+    if (args.lite) {
+        Object.assign(options, { lite: args.lite });
+    }
     (async () => {
         await exporter(options);
     })();
 } else {
+    const options = {};
+    if (args.lite) {
+        Object.assign(options, { lite: args.lite });
+    }
     (async () => {
-        await exporter();
+        await exporter(options);
     })();
 }

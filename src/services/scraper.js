@@ -43,32 +43,51 @@ const getGachaLog = async ({ wish, page, endId }, authkey) => {
     }
 }
 
-const getGachaLogs = async (wish, authkey) => {
+const getGachaLogs = async (wish, authkey, lite) => {
     try {
         let page = 1;
+        let fiveStarGacha = null;
         let list = [];
         let result = [];
         let endId = 0;
+        let defaultCondition = function () {
+            if (lite) {
+                return fiveStarGacha === null;
+            } else {
+                return list.length > 0;
+            }
+        }
+        // list.length > 0;
+        // if (lite) {
+        //     defaultCondition = fiveStarGacha === null;
+        // }
         do {
             console.log(`Process ${wish.name} with page number ${page}`);
             list = await getGachaLog({ wish, page, endId }, authkey);
+            if (lite) {
+                list.forEach(item => {
+                    if (item.rank_type === '5') {
+                        fiveStarGacha = item;
+                    }
+                });   
+            }
             result.push(...list);
             page += 1;
             if (result.length > 0) {
                 endId = BigInt(result[result.length - 1].id);
             }
-        } while (list.length > 0);
+        } while (defaultCondition());
         return result;
     } catch (error) {
         console.log(error);
     }
 }
 
-module.exports = async (authkey) => {
+module.exports = async (authkey, lite = false) => {
     try {
         const collectResult = [];
         for (let x = 0; x < wishes.length; x++) {
-            const gachaLogs = await getGachaLogs(wishes[x], authkey);
+            const gachaLogs = await getGachaLogs(wishes[x], authkey, lite);
             // Sorted in ASC mode
             const sortedGachaLogs = gachaLogs.sort((a, b) => (BigInt(a.id) < BigInt(b.id)) ? -1 : ((BigInt(a.id) > BigInt(b.id)) ? 1 : 0));
             const newResult = [];
