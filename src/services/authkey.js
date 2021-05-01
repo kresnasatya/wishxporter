@@ -18,9 +18,9 @@ module.exports = (options) => {
 }
 
 function getAuthKey(text) {
-    const authRegex = /https:\/\/.+authkey=([^&]+).*#\/(?:log)?/g;
-    const matchText = text.match(authRegex);
-    let authkeyUrl = decodeURIComponent(matchText[0]);
-    let result = authkeyUrl.match(/authkey=([^&]+)/)[1];
-    return result;
+    const decodeText = decodeURIComponent(text);
+    const authRegex = /authkey=([^&]+)/g;
+    const matchText = decodeText.match(authRegex);
+    const authkey = matchText[0].replace('authkey=', '');
+    return authkey;
 }
