@@ -46,28 +46,25 @@ const getGachaLog = async ({ wish, page, endId }, authkey) => {
 const getGachaLogs = async (wish, authkey, lite) => {
     try {
         let page = 1;
-        let fiveStarGacha = null;
+        let fiveStarGacha = [];
         let list = [];
         let result = [];
         let endId = 0;
         let defaultCondition = function () {
             if (lite) {
-                return fiveStarGacha === null;
+                return fiveStarGacha.length < 2;
             } else {
                 return list.length > 0;
             }
         }
-        // list.length > 0;
-        // if (lite) {
-        //     defaultCondition = fiveStarGacha === null;
-        // }
+
         do {
             console.log(`Process ${wish.name} with page number ${page}`);
             list = await getGachaLog({ wish, page, endId }, authkey);
             if (lite) {
                 list.forEach(item => {
                     if (item.rank_type === '5') {
-                        fiveStarGacha = item;
+                        fiveStarGacha.push(item);
                     }
                 });   
             }

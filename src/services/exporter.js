@@ -70,17 +70,17 @@ module.exports = async(options = {}) => {
 
             console.log("\n");
             console.log('------- Character Event Wish -------');
-            console.log('Last five star gacha:', fiveStarChar.name);
+            console.log('You got five star gacha:', fiveStarChar.name, 'in pity', fiveStarChar.pity);
             console.log('Current pity count:', lastCharacterEventWishes.pity);
             console.log('------------------------------------');
             console.log("\n");
             console.log('------- Weapon Event Wish -------');
-            console.log('Last five star gacha:', fiveStarWeapon.name);
+            console.log('You got five star gacha:', fiveStarWeapon.name, 'in pity', fiveStarWeapon.pity);
             console.log('Current pity count:', lastWeaponEventWishes.pity);
             console.log('------------------------------------');
             console.log("\n");
             console.log('------- Permanent Event Wish -------');
-            console.log('Last five star gacha:', fiveStarPermanent.name);
+            console.log('You got five star gacha:', fiveStarPermanent.name, 'in pity', fiveStarPermanent.pity);
             console.log('Current pity count:', lastPermanentEventWishes.pity);
             console.log('------------------------------------');
             return true;
