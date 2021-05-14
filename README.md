@@ -41,13 +41,6 @@ Ada 5 cara untuk mendapatkan authkey dari Genshin Impact:
 4. Salin dan buat file bernama **auth.txt** dan tempel hasilnya di sana.
 5. Jalankan perintah `wishxporter --file=auth.txt`.
 
-#### **PC (Windows) cara Opsional**
-
-**PERHATIAN: PASTIKAN KAMU SUDAH LOGIN KE GENSHIN IMPACT DAN TELAH MASUK KE HALAMAN GACHA EVENT WISH AGAR authkey TERSIMPAN DI output_log.txt**
-
-1. Salin file `output_log.txt` dari ~/AppData/LocalLow/miHoYo/Genshin Impact (untuk OS Windows) and tempel di direktori baru (contoh: export-player-gacha).
-2. Menuju ke direktori export-player-gacha dan jalankan `wishxporter`. Perkakas terminal akan menarik data dari API MiHoYo dengan `authkey` dari `output_log.txt` kemudian menyimpan data ke dalam bentuk file Excel.
-
 #### **Android**
 
 1. Buka menu Paimon.
