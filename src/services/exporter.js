@@ -49,6 +49,7 @@ module.exports = async(options = {}) => {
                     fiveStarChar = wish;
                 }
             });
+            let currentPityCharacterEvent = (lastCharacterEventWishes === fiveStarChar) ? 0 : lastCharacterEventWishes.pity;
 
             let weaponEventWishes = data[1];
             let fiveStarWeapon = null;
@@ -58,6 +59,7 @@ module.exports = async(options = {}) => {
                     fiveStarWeapon = wish;
                 }
             });
+            let currentPityWeaponEvent = (lastWeaponEventWishes === fiveStarWeapon) ? 0 : lastWeaponEventWishes.pity;
 
             let permanentEventWishes = data[2];
             let fiveStarPermanent = null;
@@ -67,21 +69,22 @@ module.exports = async(options = {}) => {
                     fiveStarPermanent = wish;
                 }
             });
+            let currentPityPermanentEvent = (lastPermanentEventWishes === fiveStarPermanent) ? 0 : lastPermanentEventWishes.pity;
 
             console.log("\n");
             console.log('------- Character Event Wish -------');
             console.log('You got five star gacha:', fiveStarChar.name, 'in pity', fiveStarChar.pity);
-            console.log('Current pity count:', lastCharacterEventWishes.pity);
+            console.log('Current pity count:', currentPityCharacterEvent);
             console.log('------------------------------------');
             console.log("\n");
             console.log('------- Weapon Event Wish -------');
             console.log('You got five star gacha:', fiveStarWeapon.name, 'in pity', fiveStarWeapon.pity);
-            console.log('Current pity count:', lastWeaponEventWishes.pity);
+            console.log('Current pity count:', currentPityWeaponEvent);
             console.log('------------------------------------');
             console.log("\n");
             console.log('------- Permanent Event Wish -------');
             console.log('You got five star gacha:', fiveStarPermanent.name, 'in pity', fiveStarPermanent.pity);
-            console.log('Current pity count:', lastPermanentEventWishes.pity);
+            console.log('Current pity count:', currentPityPermanentEvent);
             console.log('------------------------------------');
             return true;
         }
