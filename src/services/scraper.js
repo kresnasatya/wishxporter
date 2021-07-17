@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const GACHA_LOG_URL = "https://hk4e-api.mihoyo.com/event/gacha_info/api/";
+const GACHA_LOG_URL = "https://hk4e-api-os.mihoyo.com/event/gacha_info/api/";
 const wishes = [
     {
         key: '301', name: 'Character Event Wish'
