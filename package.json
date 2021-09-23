@@ -1,6 +1,6 @@
 {
   "name": "wishxporter",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "Export your gacha wish history from Genshin Impact account into Excel file.",
   "repository": "satyakresna/wishxporter",
   "scripts": {
