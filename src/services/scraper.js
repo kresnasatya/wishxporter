@@ -43,48 +43,47 @@ const getGachaLog = async ({ wish, page, endId }, authkey) => {
     }
 }
 
-const getGachaLogs = async (wish, authkey, lite) => {
+const getGachaLogs = async (wish, authkey) => {
     try {
         let page = 1;
-        let fiveStarGacha = [];
         let list = [];
         let result = [];
         let endId = 0;
-        let defaultCondition = function () {
-            if (lite) {
-                return fiveStarGacha.length < 2;
-            } else {
-                return list.length > 0;
-            }
-        }
+        // let defaultCondition = function () {
+        //     if (lite) {
+        //         return fiveStarGacha.length < 2;
+        //     } else {
+        //         return list.length > 0;
+        //     }
+        // }
 
         do {
             console.log(`Process ${wish.name} with page number ${page}`);
             list = await getGachaLog({ wish, page, endId }, authkey);
-            if (lite) {
-                list.forEach(item => {
-                    if (item.rank_type === '5') {
-                        fiveStarGacha.push(item);
-                    }
-                });   
-            }
+            // if (lite) {
+            //     list.forEach(item => {
+            //         if (item.rank_type === '5') {
+            //             fiveStarGacha.push(item);
+            //         }
+            //     });   
+            // }
             result.push(...list);
             page += 1;
             if (result.length > 0) {
                 endId = BigInt(result[result.length - 1].id);
             }
-        } while (defaultCondition());
+        } while (list.length > 0);
         return result;
     } catch (error) {
         console.log(error);
     }
 }
 
-module.exports = async (authkey, lite = false) => {
+module.exports = async (authkey) => {
     try {
         const collectResult = [];
         for (let x = 0; x < wishes.length; x++) {
-            const gachaLogs = await getGachaLogs(wishes[x], authkey, lite);
+            const gachaLogs = await getGachaLogs(wishes[x], authkey);
             // Sorted in ASC mode
             const sortedGachaLogs = gachaLogs.sort((a, b) => (BigInt(a.id) < BigInt(b.id)) ? -1 : ((BigInt(a.id) > BigInt(b.id)) ? 1 : 0));
             const newResult = [];

@@ -25,7 +25,7 @@ module.exports = async(options = {}) => {
         if (authkey === undefined || authkey === null) {
             throw new Error(`Please provide output_log.txt or AUTHKEY_URL in your environment file.`);
         }
-        const data = await getData(authkey, options.lite);
+        const data = await getData(authkey);
         if (options.lite) {
             for (let x = 0; x < data.length; x++) {
                 const element = data[x];
