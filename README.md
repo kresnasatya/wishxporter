@@ -3,6 +3,8 @@
 
 # Wishxporter
 
+> [DIARSIP] karena adanya metode baru untuk mendapatkan auth key di setiap platform dan kesulitan untuk menemukan caranya...
+
 Perkakas terminal untuk mengekspor riwayat gachamu dari akun Genshin Impact ke file Excel.
 
 Jika kamu mendapat keuntungan dari perkakas terminal ini [silakan traktir saya 3 - 5 es krim di Trakteer.id](https://trakteer.id/satyakresna)
@@ -33,7 +35,8 @@ Silakan jalankan perintah `wishxporter --help` untuk info lebih lanjut.
 
 Ada 5 cara untuk mendapatkan authkey dari Genshin Impact:
 
-#### **PC (Windows)**
+#### **PC (Wi
+ndows)**
 
 1. Buka menu Paimon [ESC].
 2. Klik Masukan.
